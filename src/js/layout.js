@@ -6,7 +6,9 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
+import SingleItem from "./component/singleItem.js";
+import SinglePlanet from "./component/singlePlanet.js";
+import SingleStarship from "./component/singleStarship.js";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -20,14 +22,15 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Navbar/>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/people/:uid" element={<SingleItem/>} />
+						<Route path="/planet/:uid" element={<SinglePlanet/>} />
+						<Route path="/starship/:uid" element={<SingleStarship/>} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
